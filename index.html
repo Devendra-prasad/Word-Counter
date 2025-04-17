@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        .container{
+            margin: 100px auto;
+            text-align: center;
+            /* border: 1px solid red; */
+            max-width: 50%;
+            min-height: auto;
+        }
+        h1{
+            background-color: #006780;
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            
+        }
+        textarea{
+            margin: 30px auto;
+            padding: 5px;
+            width: 90%;
+            font-size: 18px;
+        }
+        p{
+            background-color: #006780;
+            font-size: 25px;
+            margin: 10px auto;
+            padding: 5px;
+            width: 80%;
+            font-weight: bold;
+            color: white;
+
+        }
+        span{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word counter</h1>
+        <textarea name="textarea" id="textbox" cols="50" rows="10"></textarea>
+        <p>
+            <span id="word">0</span> words
+            <span id="char">0</span> Character
+        </p>
+    </div>
+
+    <script>
+        let val = document.getElementById("textbox"); // textarea selected
+        let word1 = document.getElementById('word');   // word span selected
+        let char1 = document.getElementById('char');   // char spacn selected
+
+        val.addEventListener('input' , function(){
+
+            var text1 = this.value;   // fectching value from textarea
+            let len = text1.length;   // calculating length all inputs
+            char1.innerHTML = len;    // assigning the length to the char span
+
+            text1 = text1.trim(); // it will remove left and right space
+            let words = text1.split(" ");  // it will break the inputs by space and store words in an array
+            
+
+            // split function space se break karta hai to jaise hi dubara space press hoga vo dusara word 
+            // man lega usko hatane ke liye ham filter use karte hai jiske ander ek function hota hai
+            // jisme ham condition laga sakte hai yaha per el ek parameter hai jo words se ek ek word lega
+            // aur hamne condition lagai hai ki jo not equal to blank ho vahi return karo
+            let cleanarr = words.filter(function(el){
+                  return el != "";
+            });
+
+            word1.innerHTML = cleanarr.length; 
+        });
+    </script>
+</body>
+</html>
