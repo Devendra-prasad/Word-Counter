@@ -20,6 +20,10 @@ A simple web application that counts the number of **words** and **characters** 
 1. Type or paste any text in the textbox.
 2. The app will automatically display the word and character count.
 
+## click here to see the app
+
+    https://devendra-prasad.github.io/Word-Counter/
+
 ## Author
    
    Made with love by Devendra
